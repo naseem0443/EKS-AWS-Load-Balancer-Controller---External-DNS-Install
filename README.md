@@ -150,6 +150,17 @@ Kalyans-Mac-mini:08-06-ALB-Ingress-ExternalDNS kalyanreddy$
 ```
 
 ## Step-05: Deploy ExternalDNS
+#get iam role arn 
+eksctl get iamserviceaccount --cluster eksdemo1
+```
+PS D:\Devops\k8s master class> eksctl get iamserviceaccount --cluster eksdemo1
+NAMESPACE       NAME                            ROLE ARN
+default         external-dns                    arn:aws:iam::617729733308:role/eksctl-eksdemo1-addon-iamserviceaccount-defa-Role1-ZZWBH9CCSS50
+kube-system     aws-load-balancer-controller    arn:aws:iam::617729733308:role/eksctl-eksdemo1-addon-iamserviceaccount-kube-Role1-MECFOQ66OZ2T
+PS D:\Devops\k8s master class> 
+```
+copy  external-dns    arn  arn:aws:iam::617729733308:role/eksctl-eksdemo1-addon-iamserviceaccount-defa-Role1-ZZWBH9CCSS50
+and past in Deploy-ExternalDNS.yml line no 9
 01-Deploy-ExternalDNS.yml
 ```
 apiVersion: v1
